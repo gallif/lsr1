@@ -1,0 +1,52 @@
+project_name: "LSR1"
+exp: "AMASS"
+run: "LSR1"
+timestamp: ${now:%Y%m%d/%H%M%S}
+cuda_devices: "0"
+seed: 1
+
+hydra:
+    run:
+        dir: outputs/${exp}/${run}/${timestamp}
+
+dataset_root: 
+resume_chkpt:
+
+data:
+    train:
+        name: "AMASS"
+        dataset_path: ${dataset_root}/AMASS.npz
+        batch_size: 128
+        worker: 20
+        shuffle: true
+        drop_last: true
+        augmentation: true
+        frac: 1.0
+    validate:
+        name: "3DPW"
+        dataset_path: ${dataset_root}/3DPW_valid.npz
+        skip: 10
+        batch_size: 128
+        worker: 20
+        shuffle: false
+        drop_last: true
+
+model:    
+    verbose: false
+    path: ${dataset_root}
+    inner_loss_weight: 1000
+    inner_num_steps: 8
+    num_chunks: 1
+    meta_optim:
+        meta_lr: 0.001
+        schd_step_size: 20
+        schd_gamma: 0.8
+    inner_optim: lsr1
+    lsr1:
+        inner_ang_t: 0.01
+        inner_dir_vec_eps: 1e-10
+        inner_buffer_size: 4
+        inner_l_arch: "mlp"
+        inner_dim: 128
+        alpha1: 0.1
+        alpha2: 0.001

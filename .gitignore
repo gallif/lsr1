@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ML / logging / Hydra
+wandb/
+lightning_logs/
+outputs/
+multirun/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Checkpoints (host via release, Zenodo, or Git LFS; use `git add -f` if you commit one)
+*.ckpt
+checkpoints/
+ckpts/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
