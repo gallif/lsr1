@@ -2,9 +2,9 @@
 
 Official implementation accompanying the ICML paper **L-SR1: Learned Symmetric-Rank-One Preconditioning**.
 
-**Authors:** Gal Lifshitz, Shahar Zuler, Ori Fouks, Dan Raviv · **Code:** [github.com/gallif/lsr1](https://github.com/gallif/lsr1) · **Contact:** [gallif](https://github.com/gallif)
+**Authors:** Gal Lifshitz, Shahar Zuler, Ori Fouks, Dan Raviv · **Code:** [github.com/gallif/lsr1](https://github.com/gallif/lsr1) · **Project page:** [gallif.github.io/lsr1](https://gallif.github.io/lsr1) · **Contact:** [gallif](https://github.com/gallif)
 
-**Links:** add your **paper** (arXiv / OpenReview / proceedings) and optional **project page** (e.g. GitHub Pages) here when public.
+**Links:** add your **paper** (arXiv / OpenReview / proceedings) in `docs/index.html` and here when public.
 
 ## Citation
 

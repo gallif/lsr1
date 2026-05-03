@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="L-SR1: Learned Symmetric-Rank-One Preconditioning — ICML 2026" />
+  <title>L-SR1 — Learned Symmetric-Rank-One Preconditioning</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --text: #1a1a1a;
+      --muted: #555;
+      --accent: #0b57d0;
+      --accent-hover: #0842a0;
+      --border: #e0e0e0;
+      --card: #fff;
+      --shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121212;
+        --text: #eee;
+        --muted: #aaa;
+        --accent: #8ab4f8;
+        --accent-hover: #a8c7fa;
+        --border: #333;
+        --card: #1e1e1e;
+        --shadow: 0 1px 3px rgba(0,0,0,.35);
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .wrap {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 2.5rem 1.35rem 4rem;
+    }
+    h1 {
+      font-size: clamp(1.55rem, 4vw, 2rem);
+      font-weight: 650;
+      line-height: 1.25;
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .venue {
+      display: inline-block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+    .authors {
+      font-size: 1.02rem;
+      margin: 0 0 1.5rem;
+      color: var(--text);
+    }
+    .authors a { color: var(--accent); text-decoration: none; }
+    .authors a:hover { text-decoration: underline; }
+    .btns { display: flex; flex-wrap: wrap; gap: 0.65rem; margin: 1.5rem 0 2rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--accent-hover); color: #fff; }
+    .btn-secondary {
+      background: var(--card);
+      color: var(--text);
+      border-color: var(--border);
+      box-shadow: var(--shadow);
+    }
+    .btn-secondary:hover { border-color: var(--muted); }
+    section { margin: 2.25rem 0; }
+    section h2 {
+      font-size: 1.05rem;
+      font-weight: 650;
+      margin: 0 0 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.2rem;
+      box-shadow: var(--shadow);
+    }
+    .abstract { margin: 0; color: var(--text); }
+    .bib-wrap { position: relative; }
+    pre {
+      margin: 0;
+      padding: 1rem;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      overflow-x: auto;
+      border-radius: 8px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+    .copy-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 0.5rem;
+    }
+    .copy {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      cursor: pointer;
+    }
+    .copy:hover { border-color: var(--muted); }
+    .copy.copied { color: var(--accent); border-color: var(--accent); }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>L-SR1: Learned Symmetric-Rank-One Preconditioning</h1>
+      <p class="venue">International Conference on Machine Learning (ICML), 2026</p>
+      <p class="authors">
+        <a href="https://github.com/gallif" rel="noopener">Gal Lifshitz</a>,
+        Shahar Zuler,
+        Ori Fouks,
+        Dan Raviv
+      </p>
+      <div class="btns">
+        <a class="btn btn-primary" href="https://github.com/gallif/lsr1" rel="noopener">Code</a>
+        <!-- Replace href with your arXiv, OpenReview, or proceedings URL when public -->
+        <a class="btn btn-secondary" href="#" id="paper-link" rel="noopener">Paper</a>
+      </div>
+    </header>
+
+    <main>
+      <section aria-labelledby="abstract-heading">
+        <h2 id="abstract-heading">Abstract</h2>
+        <div class="card">
+          <p class="abstract">
+            This page accompanies our ICML 2026 paper on <strong>learned symmetric rank-one (L-SR1) preconditioning</strong>.
+            We provide official code for training and evaluation; see the repository for setup, data preparation, and pretrained checkpoints when released.
+          </p>
+          <p class="abstract" style="margin-top:1rem;color:var(--muted);font-size:0.95rem;">
+            You can paste the camera-ready abstract here to replace this placeholder.
+          </p>
+        </div>
+      </section>
+
+      <section aria-labelledby="cite-heading">
+        <h2 id="cite-heading">Citation</h2>
+        <div class="bib-wrap">
+          <div class="copy-row">
+            <button type="button" class="copy" id="copy-bib" aria-label="Copy BibTeX">Copy BibTeX</button>
+          </div>
+          <pre id="bibtex" tabindex="0">@inproceedings{lsr12026,
+  title     = {L-SR1: Learned Symmetric-Rank-One Preconditioning},
+  author    = {Lifshitz, Gal and Zuler, Shahar and Fouks, Ori and Raviv, Dan},
+  booktitle = {Proceedings of the International Conference on Machine Learning (ICML)},
+  year      = {2026},
+}</pre>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Gal Lifshitz, Shahar Zuler, Ori Fouks, and Dan Raviv. Code released under the MIT License.</p>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var paper = document.getElementById('paper-link');
+      // Until you set a URL, clicking Paper scrolls to citation instead of following "#"
+      paper.addEventListener('click', function (e) {
+        if (paper.getAttribute('href') === '#') {
+          e.preventDefault();
+          document.getElementById('cite-heading').scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+      paper.setAttribute('title', 'Add your paper URL in docs/index.html (paper-link href)');
+
+      var btn = document.getElementById('copy-bib');
+      var bib = document.getElementById('bibtex');
+      btn.addEventListener('click', function () {
+        var text = bib.textContent.trim();
+        navigator.clipboard.writeText(text).then(function () {
+          btn.textContent = 'Copied';
+          btn.classList.add('copied');
+          setTimeout(function () {
+            btn.textContent = 'Copy BibTeX';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
