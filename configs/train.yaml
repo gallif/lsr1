@@ -41,7 +41,6 @@ model:
         meta_lr: 0.001
         schd_step_size: 20
         schd_gamma: 0.8
-    inner_optim: lsr1
     lsr1:
         inner_ang_t: 0.01
         inner_dir_vec_eps: 1e-10

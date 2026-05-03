@@ -1,9 +1,5 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
-#from tools.utils import bmatip
-#from models.dgcnn.dgcnn_modular import DGCNN_MODULAR
-#from utils.objectives import SphereFunction
 
 MAX = 1e30
 MAX_LR = 10.0

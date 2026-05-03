@@ -84,19 +84,29 @@ python eval.py \
   dataset_root=/path/to/data/dir
 ```
 
-`eval.py` instantiates the model from `configs/eval.yaml`’s `model` block (not from hyperparameters inside the `.ckpt`). The defaults match the released checkpoint; if you use another checkpoint, update `model.*` in the config or via CLI overrides to match that run.
-
 **Weights and biases:** Training and evaluation use `WandbLogger` if configured in code; set up [Weights & Biases](https://wandb.ai/) or adjust loggers in `train.py` / `eval.py` for offline/desired behavior.
+
+### Standalone `LSR1Optimizer`
+
+The learned symmetric-rank-one update lives in `lsr1/optimizer/`. It expects the same hyperparameter namespace as `model.lsr1` in the Hydra configs (`inner_buffer_size`, `inner_dim`, `alpha1`, `alpha2`, …). Usage pattern: **`reset()`** before a new solve; each step **`backward()`** on your loss, then **`forward(x.detach(), grad.detach())`** and add the returned update to `x` (see `LOPTModel.forward` in `lsr1/models/lsr1_baseline.py`).
+
+A tiny driver (quadratic toy) is in `examples/minimal_lsr1.py`. From the repo root:
+
+```bash
+python -m examples.minimal_lsr1
+```
 
 ## Repository layout
 
 ```
 configs/          # Hydra configs (train / eval)
 checkpoints/      # Released eval weights (lsr1__l4__best-model.ckpt)
+examples/         # minimal_lsr1.py — toy use of LSR1Optimizer
 lsr1/
+  optimizer/      # L-SR1 algorithm (LSR1Optimizer)
   data/           # Dataset loaders
-  models/         # Model definition
-  utils/          # L-SR1 optimizer, SMPL, losses, etc.
+  models/         # LOPTModel (HMR + inner L-SR1 loops)
+  utils/          # SMPL, losses, camera, …
 scripts/          # AMASS / 3DPW preprocessing
 train.py
 eval.py

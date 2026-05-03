@@ -18,7 +18,7 @@ from ..utils.loss import weighted_L1_loss
 from ..utils.camera import PinholeCamera
 from ..utils.pose_util import compute_MPJPE, normalize_p2d
 from ..utils.network import MLPBlock
-from ..utils.lsr1 import LSR1Optimizer
+from ..optimizer import LSR1Optimizer
 from ..utils.smpl import SMPLJointMapper
 
 class LOPTModel(pl.LightningModule, pl.core.hooks.CheckpointHooks):
