@@ -7,7 +7,7 @@ Official implementation accompanying the ICML paper **L-SR1: Learned Symmetric-R
 **Paper:** TBD (under construction).
 
 <!--
-  TODO (maintainer — not rendered on GitHub): add paper URL above when public; sync docs/index.html (PAPER_HREF) and teaser at docs/assets/teaser.png; refresh abstract / BibTeX in index.html; README citation block when proceedings are final; add public checkpoint / Zenodo links when ready.
+  TODO (maintainer — not rendered on GitHub): add paper URL above when public; sync docs/index.html (PAPER_HREF) and teaser at docs/assets/teaser.png; refresh abstract / BibTeX in index.html; README citation block when proceedings are final.
 -->
 
 ## Citation
@@ -59,7 +59,11 @@ Paths are configured in `configs/train.yaml` and `configs/eval.yaml` via `datase
 
 ### 3. Pretrained weights (evaluation)
 
-**Public checkpoint URL — TBD** (under construction). Training checkpoints are not included in this repository by default. When released, download the weights and pass the path as `load_checkpoint=...` (see below).
+The released checkpoint is included in this repository:
+
+`checkpoints/lsr1__l4__best-model.ckpt` (~59&nbsp;MB)
+
+Use it with `load_checkpoint` (see below). For other experiments, training still writes checkpoints under each Hydra run directory (`ckpts/`).
 
 ## Usage
 
@@ -81,7 +85,7 @@ python train.py dataset_root=/path/to/data/dir cuda_devices=0
 
 ```bash
 python eval.py \
-  load_checkpoint=/path/to/your.ckpt \
+  load_checkpoint=checkpoints/lsr1__l4__best-model.ckpt \
   model.inner_num_steps=12 \
   dataset_root=/path/to/data/dir
 ```
@@ -94,6 +98,7 @@ Adjust `model.inner_num_steps` and other `model.*` options to match the checkpoi
 
 ```
 configs/          # Hydra configs (train / eval)
+checkpoints/      # Released eval weights (lsr1__l4__best-model.ckpt)
 lsr1/
   data/           # Dataset loaders
   models/         # Model definition

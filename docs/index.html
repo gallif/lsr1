@@ -29,6 +29,12 @@
       padding-left: 1.25rem;
       padding-right: 1.25rem;
     }
+    .publication-header-block {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .publication-title {
       font-family: 'Noto Sans', sans-serif;
       font-weight: 700;
@@ -68,6 +74,12 @@
       padding-top: 0;
       padding-bottom: 2rem;
     }
+    /* Cap teaser width so a raster figure is not upscaled (reduces pixelation). */
+    .teaser-figure-column {
+      max-width: 920px;
+      margin-left: auto;
+      margin-right: auto;
+    }
     .publication-banner img {
       border-radius: 10px;
       width: 100%;
@@ -88,6 +100,7 @@
       font-size: 1rem;
       line-height: 1.55;
       color: #444;
+      text-align: left;
     }
     .teaser-caption a {
       color: hsl(204, 86%, 40%);
@@ -129,30 +142,32 @@
   <section class="hero teaser is-light is-small">
     <div class="hero-body">
       <div class="container is-fluid page-container">
-        <h1 class="title publication-title">L-SR1: Learned Symmetric-Rank-One Preconditioning</h1>
-        <div class="publication-authors">
-          <span class="author-block">
-            <a href="https://github.com/gallif" rel="noopener noreferrer">Gal Lifshitz</a>,
-          </span>
-          <span class="author-block">Shahar Zuler,</span>
-          <span class="author-block">Ori Fouks,</span>
-          <span class="author-block">Dan Raviv</span>
-        </div>
-        <div class="publication-venue">International Conference on Machine Learning (ICML), 2026</div>
-
-        <article class="message is-warning is-small mb-4" style="max-width: 52rem;">
-          <div class="message-body py-3">
-            This project page is <strong>under construction</strong>. Some links and materials are <abbr title="To be determined">TBD</abbr>.
+        <div class="publication-header-block">
+          <h1 class="title publication-title">L-SR1: Learned Symmetric-Rank-One Preconditioning</h1>
+          <div class="publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/gallif" rel="noopener noreferrer">Gal Lifshitz</a>,
+            </span>
+            <span class="author-block">Shahar Zuler,</span>
+            <span class="author-block">Ori Fouks,</span>
+            <span class="author-block">Dan Raviv</span>
           </div>
-        </article>
+          <div class="publication-venue">International Conference on Machine Learning (ICML), 2026</div>
 
-        <div class="buttons is-centered is-flex-wrap-wrap" style="justify-content: flex-start;">
-          <span class="link-block">
-            <a href="https://github.com/gallif/lsr1" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-link">Code</a>
-          </span>
-          <span class="link-block">
-            <a href="#" class="external-link button is-normal is-rounded is-dark is-disabled-paper" id="paper-link">Paper <span class="has-text-grey-lighter">(TBD)</span></a>
-          </span>
+          <article class="message is-warning is-small mb-4" style="max-width: 52rem; text-align: left;">
+            <div class="message-body py-3">
+              This project page is <strong>under construction</strong>. Some links and materials are <abbr title="To be determined">TBD</abbr>.
+            </div>
+          </article>
+
+          <div class="buttons is-centered is-flex-wrap-wrap" style="justify-content: center;">
+            <span class="link-block">
+              <a href="https://github.com/gallif/lsr1" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-link">Code</a>
+            </span>
+            <span class="link-block">
+              <a href="#" class="external-link button is-normal is-rounded is-dark is-disabled-paper" id="paper-link">Paper <span class="has-text-grey-lighter">(TBD)</span></a>
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -161,12 +176,14 @@
   <section class="hero teaser">
     <div class="hero-body">
       <div class="container is-fluid page-container">
-        <div class="publication-banner">
-          <div id="teaser-root"></div>
-        </div>
-        <p id="teaser-caption" class="teaser-caption">
+        <div class="teaser-figure-column">
+          <div class="publication-banner">
+            <div id="teaser-root"></div>
+          </div>
+          <p id="teaser-caption" class="teaser-caption">
           <strong>Optimization trajectories.</strong> Our evaluation spans both classic analytic functions and the real-world human mesh recovery (HMR). Shown here are example optimization trajectories on a quadratic function and two well-known challenging benchmark functions from the <a href="http://www.sfu.ca/~ssurjano" rel="noopener noreferrer">Virtual Library of Simulation Experiments</a> (Surjanovic &amp; Bingham)—the Rosenbrock and Rastrigin functions. In this example, we compare LBFGS with our lightweight L-SR1 method, with and without the proposed learned projection. The learned projection, a novel element of our approach, improves convergence while preserving model compactness.
-        </p>
+          </p>
+        </div>
       </div>
     </div>
   </section>

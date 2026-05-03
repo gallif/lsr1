@@ -26,9 +26,9 @@ multirun/
 .mypy_cache/
 .ruff_cache/
 
-# Checkpoints (host via release, Zenodo, or Git LFS; use `git add -f` if you commit one)
+# Checkpoints (tracked release weights; ignore all other .ckpt files)
 *.ckpt
-checkpoints/
+!checkpoints/lsr1__l4__best-model.ckpt
 ckpts/
 
 # IDE / OS
