@@ -7,7 +7,7 @@ Official implementation accompanying the ICML paper **L-SR1: Learned Symmetric-R
 **Paper:** TBD (under construction).
 
 <!--
-  TODO (maintainer — not rendered on GitHub): add paper URL above when public; sync docs/index.html (PAPER_HREF) and teaser at docs/assets/teaser.png; refresh abstract / BibTeX in index.html; README citation block when proceedings are final.
+  TODO (maintainer — not rendered on GitHub): add paper URL above when public; sync docs/index.html (PAPER_HREF) and teaser at docs/assets/teaser.png; refresh abstract / BibTeX in index.html; README citation block when proceedings are final; add public checkpoint / Zenodo links when ready.
 -->
 
 ## Citation
@@ -59,7 +59,7 @@ Paths are configured in `configs/train.yaml` and `configs/eval.yaml` via `datase
 
 ### 3. Pretrained weights (evaluation)
 
-Training checkpoints are not included in this repository by default. After you publish weights (e.g. GitHub Release, Zenodo, or cloud storage), download them and pass the path as `load_checkpoint=...` (see below).
+**Public checkpoint URL — TBD** (under construction). Training checkpoints are not included in this repository by default. When released, download the weights and pass the path as `load_checkpoint=...` (see below).
 
 ## Usage
 
