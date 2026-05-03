@@ -13,229 +13,196 @@
     - Extend BibTeX (volume, pages, url, doi) when proceedings are official
     - Optional: Zenodo DOI, checkpoint link in README / Resources section
   -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
   <style>
-    :root {
-      --bg: #fafafa;
-      --text: #1a1a1a;
-      --muted: #555;
-      --accent: #0b57d0;
-      --accent-hover: #0842a0;
-      --border: #e0e0e0;
-      --card: #fff;
-      --shadow: 0 1px 3px rgba(0,0,0,.08);
+    body {
+      font-family: 'Noto Sans', sans-serif;
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #121212;
-        --text: #eee;
-        --muted: #aaa;
-        --accent: #8ab4f8;
-        --accent-hover: #a8c7fa;
-        --border: #333;
-        --card: #1e1e1e;
-        --shadow: 0 1px 3px rgba(0,0,0,.35);
+    /* Wide content column (Nerfies-style project pages) */
+    .page-container {
+      max-width: min(96vw, 1360px);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+    .publication-title {
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.45rem, 2.85vw, 2.45rem);
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      color: #111;
+      margin-bottom: 0.75rem !important;
+    }
+    @media (min-width: 1000px) {
+      .publication-title {
+        white-space: nowrap;
       }
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    .publication-authors {
+      font-family: 'Noto Sans', sans-serif;
       font-size: 1.05rem;
-      line-height: 1.55;
-      color: var(--text);
-      background: var(--bg);
+      margin-bottom: 0.5rem !important;
     }
-    .wrap {
-      max-width: 44rem;
-      margin: 0 auto;
-      padding: 2.5rem 1.35rem 4rem;
+    .publication-authors a {
+      color: hsl(204, 86%, 40%) !important;
     }
-    h1 {
-      font-size: clamp(1.55rem, 4vw, 2rem);
-      font-weight: 650;
-      line-height: 1.25;
-      margin: 0 0 0.75rem;
-      letter-spacing: -0.02em;
+    .publication-authors a:hover {
+      text-decoration: underline;
     }
-    .venue {
+    .author-block {
       display: inline-block;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--muted);
-      margin-bottom: 1.25rem;
+      margin-right: 0.15rem;
     }
-    .status-banner {
-      font-size: 0.9rem;
-      color: var(--muted);
-      background: var(--card);
-      border: 1px dashed var(--border);
-      border-radius: 8px;
-      padding: 0.65rem 0.85rem;
-      margin: 0 0 1.25rem;
-    }
-    .authors {
-      font-size: 1.02rem;
-      margin: 0 0 1.5rem;
-      color: var(--text);
-    }
-    .authors a { color: var(--accent); text-decoration: none; }
-    .authors a:hover { text-decoration: underline; }
-    .btns { display: flex; flex-wrap: wrap; gap: 0.65rem; margin: 1.5rem 0 2rem; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.55rem 1.1rem;
-      font-size: 0.95rem;
-      font-weight: 600;
-      border-radius: 8px;
-      text-decoration: none;
-      border: 1px solid transparent;
-      transition: background .15s, border-color .15s, color .15s;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-    .btn-primary:hover { background: var(--accent-hover); color: #fff; }
-    .btn-secondary {
-      background: var(--card);
-      color: var(--text);
-      border-color: var(--border);
-      box-shadow: var(--shadow);
-    }
-    .btn-secondary:hover { border-color: var(--muted); }
-    .btn[aria-disabled="true"] {
-      opacity: 0.72;
-      cursor: not-allowed;
-      pointer-events: none;
-    }
-    section { margin: 2.25rem 0; }
-    section h2 {
+    .publication-venue {
+      color: #555;
+      font-weight: 700;
       font-size: 1.05rem;
-      font-weight: 650;
-      margin: 0 0 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--muted);
+      margin-bottom: 0.75rem;
     }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
+    .teaser .hero-body {
+      padding-top: 0;
+      padding-bottom: 2rem;
+    }
+    .publication-banner img {
       border-radius: 10px;
-      padding: 1.1rem 1.2rem;
-      box-shadow: var(--shadow);
-    }
-    .abstract { margin: 0; color: var(--text); }
-    .muted { color: var(--muted); font-size: 0.95rem; }
-    .teaser-root img {
-      max-width: 100%;
+      width: 100%;
       height: auto;
       display: block;
-      border-radius: 8px;
     }
     .teaser-uc {
       margin: 0;
       text-align: center;
-      padding: 2rem 1rem;
-      color: var(--muted);
-      border: 1px dashed var(--border);
-      border-radius: 8px;
-      background: var(--bg);
+      padding: 2.75rem 1.25rem;
+      color: #666;
+      border: 1px dashed #ccc;
+      border-radius: 10px;
+      background: #fafafa;
     }
-    .teaser-caption { margin: 0.75rem 0 0; }
-    .bib-wrap { position: relative; }
-    pre {
-      margin: 0;
-      padding: 1rem;
-      font-size: 0.82rem;
+    .teaser-caption {
+      margin-top: 1rem;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: #444;
+    }
+    .teaser-caption a {
+      color: hsl(204, 86%, 40%);
+    }
+    .teaser-caption a:hover {
+      text-decoration: underline;
+    }
+    .link-block {
+      display: inline-block;
+      margin: 0.35rem 0.35rem 0.35rem 0;
+    }
+    .link-block .button[disabled],
+    .link-block .button.is-disabled-paper {
+      opacity: 0.65;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    .section-copy {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: #363636;
+    }
+    .section-copy .content p {
+      margin-bottom: 1em;
+    }
+    #bibtex {
+      font-size: 0.85rem;
       line-height: 1.45;
-      overflow-x: auto;
       border-radius: 8px;
-      background: var(--bg);
-      border: 1px solid var(--border);
+      background: #f5f5f5;
+      padding: 1rem 1.15rem;
     }
-    .copy-row {
-      display: flex;
-      justify-content: flex-end;
+    .copy-bib-btn {
       margin-bottom: 0.5rem;
-    }
-    .copy {
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 0.35rem 0.65rem;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: var(--text);
-      cursor: pointer;
-    }
-    .copy:hover { border-color: var(--muted); }
-    .copy.copied { color: var(--accent); border-color: var(--accent); }
-    footer {
-      margin-top: 3rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.88rem;
-      color: var(--muted);
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1>L-SR1: Learned Symmetric-Rank-One Preconditioning</h1>
-      <p class="venue">International Conference on Machine Learning (ICML), 2026</p>
-      <p class="status-banner" role="note">This project page is <strong>under construction</strong>. Some links and materials are <abbr title="To be determined">TBD</abbr>.</p>
-      <p class="authors">
-        <a href="https://github.com/gallif" rel="noopener">Gal Lifshitz</a>,
-        Shahar Zuler,
-        Ori Fouks,
-        Dan Raviv
-      </p>
-      <div class="btns">
-        <a class="btn btn-primary" href="https://github.com/gallif/lsr1" rel="noopener">Code</a>
-        <a class="btn btn-secondary" href="#" id="paper-link" rel="noopener">Paper <span class="muted" style="font-size:0.88em;font-weight:700;">(TBD)</span></a>
-      </div>
-    </header>
-
-    <main>
-      <section aria-labelledby="teaser-heading">
-        <h2 id="teaser-heading">Teaser</h2>
-        <div class="card">
-          <div id="teaser-root" class="teaser-root"></div>
-          <p id="teaser-caption" class="teaser-caption muted"><strong>Optimization trajectories.</strong> Our evaluation spans both classic analytic functions and the real-world human mesh recovery (HMR). Shown here are example optimization trajectories on a quadratic function and two well-known challenging benchmark functions from the <a href="http://www.sfu.ca/~ssurjano" rel="noopener noreferrer">Virtual Library of Simulation Experiments</a> (Surjanovic &amp; Bingham)—the Rosenbrock and Rastrigin functions. In this example, we compare LBFGS with our lightweight L-SR1 method, with and without the proposed learned projection. The learned projection, a novel element of our approach, improves convergence while preserving model compactness.</p>
+  <section class="hero teaser is-light is-small">
+    <div class="hero-body">
+      <div class="container is-fluid page-container">
+        <h1 class="title publication-title">L-SR1: Learned Symmetric-Rank-One Preconditioning</h1>
+        <div class="publication-authors">
+          <span class="author-block">
+            <a href="https://github.com/gallif" rel="noopener noreferrer">Gal Lifshitz</a>,
+          </span>
+          <span class="author-block">Shahar Zuler,</span>
+          <span class="author-block">Ori Fouks,</span>
+          <span class="author-block">Dan Raviv</span>
         </div>
-      </section>
+        <div class="publication-venue">International Conference on Machine Learning (ICML), 2026</div>
 
-      <section aria-labelledby="abstract-heading">
-        <h2 id="abstract-heading">Abstract</h2>
-        <div class="card">
-          <p class="abstract"><em>Under construction</em> (TBD).</p>
-        </div>
-      </section>
-
-      <section aria-labelledby="cite-heading">
-        <h2 id="cite-heading">Citation</h2>
-        <p class="muted" style="margin:0 0 0.75rem;">BibTeX — provisional; volume / pages / DOI <abbr title="To be determined">TBD</abbr>.</p>
-        <div class="bib-wrap">
-          <div class="copy-row">
-            <button type="button" class="copy" id="copy-bib" aria-label="Copy BibTeX">Copy BibTeX</button>
+        <article class="message is-warning is-small mb-4" style="max-width: 52rem;">
+          <div class="message-body py-3">
+            This project page is <strong>under construction</strong>. Some links and materials are <abbr title="To be determined">TBD</abbr>.
           </div>
-          <pre id="bibtex" tabindex="0">@inproceedings{lsr12026,
+        </article>
+
+        <div class="buttons is-centered is-flex-wrap-wrap" style="justify-content: flex-start;">
+          <span class="link-block">
+            <a href="https://github.com/gallif/lsr1" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-link">Code</a>
+          </span>
+          <span class="link-block">
+            <a href="#" class="external-link button is-normal is-rounded is-dark is-disabled-paper" id="paper-link">Paper <span class="has-text-grey-lighter">(TBD)</span></a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="hero-body">
+      <div class="container is-fluid page-container">
+        <div class="publication-banner">
+          <div id="teaser-root"></div>
+        </div>
+        <p id="teaser-caption" class="teaser-caption">
+          <strong>Optimization trajectories.</strong> Our evaluation spans both classic analytic functions and the real-world human mesh recovery (HMR). Shown here are example optimization trajectories on a quadratic function and two well-known challenging benchmark functions from the <a href="http://www.sfu.ca/~ssurjano" rel="noopener noreferrer">Virtual Library of Simulation Experiments</a> (Surjanovic &amp; Bingham)—the Rosenbrock and Rastrigin functions. In this example, we compare LBFGS with our lightweight L-SR1 method, with and without the proposed learned projection. The learned projection, a novel element of our approach, improves convergence while preserving model compactness.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-1 pb-5">
+    <div class="container is-fluid page-container">
+      <h2 class="title is-3">Abstract</h2>
+      <div class="content section-copy">
+        <p><em>Under construction</em> (TBD).</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0 pb-6">
+    <div class="container is-fluid page-container">
+      <h2 class="title is-3">BibTeX</h2>
+      <p class="is-size-6 has-text-grey mb-3">Provisional entry; volume / pages / DOI <abbr title="To be determined">TBD</abbr>.</p>
+      <div class="buttons is-right copy-bib-btn">
+        <button type="button" class="button is-small is-rounded" id="copy-bib">Copy BibTeX</button>
+      </div>
+      <pre id="bibtex" tabindex="0">@inproceedings{lsr12026,
   title     = {L-SR1: Learned Symmetric-Rank-One Preconditioning},
   author    = {Lifshitz, Gal and Zuler, Shahar and Fouks, Ori and Raviv, Dan},
   booktitle = {Proceedings of the International Conference on Machine Learning (ICML)},
   year      = {2026},
 }</pre>
-        </div>
-      </section>
-    </main>
+    </div>
+  </section>
 
-    <footer>
-      <p>© 2026 Gal Lifshitz, Shahar Zuler, Ori Fouks, and Dan Raviv. Code released under the MIT License.</p>
-    </footer>
-  </div>
+  <footer class="footer has-background-light">
+    <div class="container is-fluid page-container">
+      <div class="content has-text-centered is-small has-text-grey">
+        <p>© 2026 Gal Lifshitz, Shahar Zuler, Ori Fouks, and Dan Raviv. Code released under the MIT License.</p>
+      </div>
+    </div>
+  </footer>
 
   <script>
     (function () {
@@ -261,11 +228,10 @@
       var paper = document.getElementById('paper-link');
       if (PAPER_HREF) {
         paper.setAttribute('href', PAPER_HREF);
-        paper.removeAttribute('aria-disabled');
+        paper.classList.remove('is-disabled-paper');
         paper.innerHTML = 'Paper';
         paper.setAttribute('title', '');
       } else {
-        paper.setAttribute('aria-disabled', 'true');
         paper.setAttribute('title', 'Paper link — TBD');
         paper.addEventListener('click', function (e) {
           e.preventDefault();
@@ -277,11 +243,12 @@
       btn.addEventListener('click', function () {
         var text = bib.textContent.trim();
         navigator.clipboard.writeText(text).then(function () {
+          var prev = btn.textContent;
           btn.textContent = 'Copied';
-          btn.classList.add('copied');
+          btn.classList.add('is-success');
           setTimeout(function () {
-            btn.textContent = 'Copy BibTeX';
-            btn.classList.remove('copied');
+            btn.textContent = prev;
+            btn.classList.remove('is-success');
           }, 2000);
         });
       });
