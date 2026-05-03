@@ -21,6 +21,7 @@ env/
 wandb/
 lightning_logs/
 outputs/
+examples_outputs/
 multirun/
 .pytest_cache/
 .mypy_cache/
