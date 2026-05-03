@@ -94,6 +94,8 @@ A tiny driver (quadratic toy) is in `examples/minimal_lsr1.py`. From the repo ro
 
 ```bash
 python -m examples.minimal_lsr1
+# or:
+python examples/minimal_lsr1.py
 ```
 
 ## Repository layout

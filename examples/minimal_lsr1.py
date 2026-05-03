@@ -2,15 +2,25 @@
 """
 Minimal L-SR1 inner step (same API as in `lsr1.models.lsr1_baseline`).
 
-Run from the repository root (this directory's parent):
+From the repository root (directory that contains `lsr1/` and `examples/`):
 
   python -m examples.minimal_lsr1
+
+  python examples/minimal_lsr1.py
 
 For each outer iteration: set `x` to require grads, compute your scalar loss,
 `backward()`, then pass `(x.detach(), x.grad.detach())` into the optimizer.
 Call `reset()` before a new sequence (new batch or new solve).
 """
 from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+# So `python examples/minimal_lsr1.py` finds the `lsr1` package when run from repo root.
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
 
 import types
 
