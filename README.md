@@ -9,13 +9,9 @@ Official implementation accompanying **L-SR1: Learned Symmetric-Rank-One Precond
 - **Contact:** [gallif](https://github.com/gallif)
 - **Paper (arXiv preprint):** [2508.12270](https://arxiv.org/abs/2508.12270) · [PDF](https://arxiv.org/pdf/2508.12270.pdf)
 
-<!--
-  TODO (maintainer — not rendered on GitHub): when proceedings are official, add ICML citation alongside or instead of arXiv; sync BibTeX in README and docs/index.html.
--->
-
 ## Citation
 
-If you use this code, please cite the paper (arXiv preprint; ICML 2026 proceedings entry to follow):
+If you use this code, please cite the paper:
 
 ```bibtex
 @misc{lifshitz2025lsr1,
@@ -29,7 +25,7 @@ If you use this code, please cite the paper (arXiv preprint; ICML 2026 proceedin
 }
 ```
 
-When the ICML proceedings version is available, you may switch to the official `@inproceedings{...}` entry (volume / pages / DOI).
+Official ICML proceedings `@inproceedings` citation will be added here when available.
 
 ## Requirements
 
