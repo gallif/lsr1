@@ -1,13 +1,6 @@
 # L-SR1: Learned Symmetric-Rank-One Preconditioning
 
-Official implementation accompanying **L-SR1: Learned Symmetric-Rank-One Preconditioning** (ICML 2026; [arXiv:2508.12270](https://arxiv.org/abs/2508.12270)).
-
-- **Authors:** Gal Lifshitz, Shahar Zuler, Ori Fouks, Dan Raviv
-- **Affiliation:** Tel Aviv University, Tel-Aviv, Israel
-- **Code:** [github.com/gallif/lsr1](https://github.com/gallif/lsr1)
-- **Project page:** [gallif.github.io/lsr1](https://gallif.github.io/lsr1)
-- **Contact:** [gallif](https://github.com/gallif)
-- **Paper (arXiv preprint):** [2508.12270](https://arxiv.org/abs/2508.12270) · [PDF](https://arxiv.org/pdf/2508.12270.pdf)
+Official PyTorch code for **L-SR1: Learned Symmetric-Rank-One Preconditioning** (ICML 2026). **Links:** [Project page](https://gallif.github.io/lsr1) · [Paper (arXiv)](https://arxiv.org/abs/2508.12270) · [PDF](https://arxiv.org/pdf/2508.12270.pdf) · ICML proceedings *(currently unavailable)*.
 
 ## Citation
 
