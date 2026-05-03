@@ -1,33 +1,35 @@
 # L-SR1: Learned Symmetric-Rank-One Preconditioning
 
-Official implementation accompanying the ICML paper **L-SR1: Learned Symmetric-Rank-One Preconditioning**.
+Official implementation accompanying **L-SR1: Learned Symmetric-Rank-One Preconditioning** (ICML 2026; [arXiv:2508.12270](https://arxiv.org/abs/2508.12270)).
 
 - **Authors:** Gal Lifshitz, Shahar Zuler, Ori Fouks, Dan Raviv
 - **Affiliation:** Tel Aviv University, Tel-Aviv, Israel
 - **Code:** [github.com/gallif/lsr1](https://github.com/gallif/lsr1)
 - **Project page:** [gallif.github.io/lsr1](https://gallif.github.io/lsr1)
 - **Contact:** [gallif](https://github.com/gallif)
-
-**Paper:** TBD (under construction).
+- **Paper (arXiv preprint):** [2508.12270](https://arxiv.org/abs/2508.12270) · [PDF](https://arxiv.org/pdf/2508.12270.pdf)
 
 <!--
-  TODO (maintainer — not rendered on GitHub): add paper URL above when public; sync docs/index.html (PAPER_HREF) and teaser at docs/assets/teaser.png; refresh abstract / BibTeX in index.html; README citation block when proceedings are final.
+  TODO (maintainer — not rendered on GitHub): when proceedings are official, add ICML citation alongside or instead of arXiv; sync BibTeX in README and docs/index.html.
 -->
 
 ## Citation
 
-If you use this code, please cite our paper:
+If you use this code, please cite the paper (arXiv preprint; ICML 2026 proceedings entry to follow):
 
 ```bibtex
-@inproceedings{lsr12026,
-  title     = {L-SR1: Learned Symmetric-Rank-One Preconditioning},
-  author    = {Lifshitz, Gal and Zuler, Shahar and Fouks, Ori and Raviv, Dan},
-  booktitle = {Proceedings of the International Conference on Machine Learning (ICML)},
-  year      = {2026},
+@misc{lifshitz2025lsr1,
+  title         = {{L-SR1}: Learned Symmetric-Rank-One Preconditioning},
+  author        = {Lifshitz, Gal and Zuler, Shahar and Fouks, Ori and Raviv, Dan},
+  year          = {2025},
+  eprint        = {2508.12270},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2508.12270},
 }
 ```
 
-Full proceedings metadata (`volume`, `pages`, `url` / `doi`) — **TBD**.
+When the ICML proceedings version is available, you may switch to the official `@inproceedings{...}` entry (volume / pages / DOI).
 
 ## Requirements
 

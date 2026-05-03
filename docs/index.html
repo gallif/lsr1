@@ -3,15 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="L-SR1: Learned Symmetric-Rank-One Preconditioning — ICML 2026" />
+  <meta name="description" content="L-SR1: Learned Symmetric-Rank-One Preconditioning — ICML 2026, arXiv:2508.12270" />
   <title>L-SR1 — Learned Symmetric-Rank-One Preconditioning</title>
   <!--
     Maintainer TODO (source-only; omitted in browser)
-    - Teaser: docs/assets/teaser.png + caption below (update if the figure changes)
-    - Set PAPER_HREF in script when the paper URL is public
-    - Replace abstract TBD with camera-ready text when allowed
-    - Extend BibTeX (volume, pages, url, doi) when proceedings are official
-    - Optional: Zenodo DOI, checkpoint link in README / Resources section
+    - When ICML proceedings are official: venue line + BibTeX in this file
+    - Teaser: docs/assets/teaser.png (update if the figure changes)
+    - Optional: Zenodo DOI
   -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -119,12 +117,6 @@
       display: inline-block;
       margin: 0.35rem 0.35rem 0.35rem 0;
     }
-    .link-block .button[disabled],
-    .link-block .button.is-disabled-paper {
-      opacity: 0.65;
-      cursor: not-allowed;
-      pointer-events: none;
-    }
     .section-copy {
       font-size: 1.05rem;
       line-height: 1.65;
@@ -161,19 +153,25 @@
           </div>
           <div class="publication-affiliation">Tel Aviv University, Tel-Aviv, Israel</div>
           <div class="publication-venue">International Conference on Machine Learning (ICML), 2026</div>
+          <div class="is-size-6 mb-3" style="color:#666;">
+            arXiv preprint: <a href="https://arxiv.org/abs/2508.12270" rel="noopener noreferrer">2508.12270</a>
+          </div>
 
           <article class="message is-warning is-small mb-4" style="max-width: 52rem; text-align: left;">
             <div class="message-body py-3">
-              This project page is <strong>under construction</strong>. Some links and materials are <abbr title="To be determined">TBD</abbr>.
+              This project page is still <strong>under construction</strong> in places (e.g. final proceedings link and extras). The paper is available on <a href="https://arxiv.org/abs/2508.12270" rel="noopener noreferrer">arXiv</a>.
             </div>
           </article>
 
           <div class="buttons is-centered is-flex-wrap-wrap" style="justify-content: center;">
             <span class="link-block">
-              <a href="https://github.com/gallif/lsr1" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-link">Code</a>
+              <a href="https://arxiv.org/abs/2508.12270" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark">arXiv</a>
             </span>
             <span class="link-block">
-              <a href="#" class="external-link button is-normal is-rounded is-dark is-disabled-paper" id="paper-link">Paper <span class="has-text-grey-lighter">(TBD)</span></a>
+              <a href="https://arxiv.org/pdf/2508.12270.pdf" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-light">PDF</a>
+            </span>
+            <span class="link-block">
+              <a href="https://github.com/gallif/lsr1" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-link">Code</a>
             </span>
           </div>
         </div>
@@ -200,7 +198,8 @@
     <div class="container is-fluid page-container">
       <h2 class="title is-3">Abstract</h2>
       <div class="content section-copy">
-        <p><em>Under construction</em> (TBD).</p>
+        <p>End-to-end deep learning has achieved impressive results but remains limited by its reliance on large labeled datasets, poor generalization to unseen scenarios, and growing computational demands. In contrast, classical optimization methods are data-efficient and lightweight but often suffer from slow convergence. While learned optimizers offer a promising fusion of both worlds, most focus on first-order methods, leaving learned second-order approaches largely unexplored.</p>
+        <p>We propose a novel learned second-order optimizer that introduces a trainable preconditioning unit to enhance the classical Symmetric-Rank-One (SR1) algorithm. This unit generates data-driven vectors used to construct positive semi-definite rank-one matrices, aligned with the secant constraint via a learned projection. Our method is evaluated through analytic experiments and on the real-world task of Monocular Human Mesh Recovery (HMR), where it outperforms existing learned optimization-based approaches. Featuring a lightweight model and requiring no annotated data or fine-tuning, our approach offers strong generalization and is well-suited for integration into broader optimization-based frameworks.</p>
       </div>
     </div>
   </section>
@@ -208,15 +207,18 @@
   <section class="section pt-0 pb-6">
     <div class="container is-fluid page-container">
       <h2 class="title is-3">BibTeX</h2>
-      <p class="is-size-6 has-text-grey mb-3">Provisional entry; volume / pages / DOI <abbr title="To be determined">TBD</abbr>.</p>
+      <p class="is-size-6 has-text-grey mb-3">arXiv preprint. Add the official ICML proceedings <code>@inproceedings</code> when published.</p>
       <div class="buttons is-right copy-bib-btn">
         <button type="button" class="button is-small is-rounded" id="copy-bib">Copy BibTeX</button>
       </div>
-      <pre id="bibtex" tabindex="0">@inproceedings{lsr12026,
-  title     = {L-SR1: Learned Symmetric-Rank-One Preconditioning},
-  author    = {Lifshitz, Gal and Zuler, Shahar and Fouks, Ori and Raviv, Dan},
-  booktitle = {Proceedings of the International Conference on Machine Learning (ICML)},
-  year      = {2026},
+      <pre id="bibtex" tabindex="0">@misc{lifshitz2025lsr1,
+  title         = {{L-SR1}: Learned Symmetric-Rank-One Preconditioning},
+  author        = {Lifshitz, Gal and Zuler, Shahar and Fouks, Ori and Raviv, Dan},
+  year          = {2025},
+  eprint        = {2508.12270},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2508.12270},
 }</pre>
     </div>
   </section>
@@ -232,8 +234,6 @@
   <script>
     (function () {
       var TEASER_SRC = 'assets/teaser.png';
-      /* Maintainer: set when public (or leave null to keep Paper TBD behavior) */
-      var PAPER_HREF = null;
 
       var teaserRoot = document.getElementById('teaser-root');
       var img = new Image();
@@ -249,19 +249,6 @@
         teaserRoot.appendChild(p);
       };
       img.src = TEASER_SRC;
-
-      var paper = document.getElementById('paper-link');
-      if (PAPER_HREF) {
-        paper.setAttribute('href', PAPER_HREF);
-        paper.classList.remove('is-disabled-paper');
-        paper.innerHTML = 'Paper';
-        paper.setAttribute('title', '');
-      } else {
-        paper.setAttribute('title', 'Paper link — TBD');
-        paper.addEventListener('click', function (e) {
-          e.preventDefault();
-        });
-      }
 
       var btn = document.getElementById('copy-bib');
       var bib = document.getElementById('bibtex');
