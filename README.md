@@ -81,11 +81,10 @@ python train.py dataset_root=/path/to/data/dir cuda_devices=0
 ```bash
 python eval.py \
   load_checkpoint=checkpoints/lsr1__l4__best-model.ckpt \
-  model.inner_num_steps=12 \
   dataset_root=/path/to/data/dir
 ```
 
-Adjust `model.inner_num_steps` and other `model.*` options to match the checkpoint.
+`eval.py` instantiates the model from `configs/eval.yaml`’s `model` block (not from hyperparameters inside the `.ckpt`). The defaults match the released checkpoint; if you use another checkpoint, update `model.*` in the config or via CLI overrides to match that run.
 
 **Weights and biases:** Training and evaluation use `WandbLogger` if configured in code; set up [Weights & Biases](https://wandb.ai/) or adjust loggers in `train.py` / `eval.py` for offline/desired behavior.
 

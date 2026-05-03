@@ -26,7 +26,7 @@ model:
     dump: false
     path: ${dataset_root}
     inner_loss_weight: 1000
-    inner_num_steps: 20
+    inner_num_steps: 12
     inner_optim: lsr1
     inner_beta_lr: 0.1
     inner_theta_lr: 0.1
