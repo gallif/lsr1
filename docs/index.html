@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="L-SR1: Learned Symmetric-Rank-One Preconditioning — ICML 2026" />
   <title>L-SR1 — Learned Symmetric-Rank-One Preconditioning</title>
+  <!--
+    Maintainer TODO (source-only; omitted in browser)
+    - Drop teaser image as docs/assets/teaser.png (or change TEASER_SRC in script)
+    - Set PAPER_HREF in script when the paper URL is public
+    - Replace abstract/caption TBD copy with camera-ready text
+    - Extend BibTeX (volume, pages, url, doi) when proceedings are official
+    - Optional: Zenodo DOI, checkpoint link in Resources section
+  -->
   <style>
     :root {
       --bg: #fafafa;
@@ -56,6 +64,15 @@
       color: var(--muted);
       margin-bottom: 1.25rem;
     }
+    .status-banner {
+      font-size: 0.9rem;
+      color: var(--muted);
+      background: var(--card);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 0.65rem 0.85rem;
+      margin: 0 0 1.25rem;
+    }
     .authors {
       font-size: 1.02rem;
       margin: 0 0 1.5rem;
@@ -88,6 +105,11 @@
       box-shadow: var(--shadow);
     }
     .btn-secondary:hover { border-color: var(--muted); }
+    .btn[aria-disabled="true"] {
+      opacity: 0.72;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
     section { margin: 2.25rem 0; }
     section h2 {
       font-size: 1.05rem;
@@ -105,6 +127,23 @@
       box-shadow: var(--shadow);
     }
     .abstract { margin: 0; color: var(--text); }
+    .muted { color: var(--muted); font-size: 0.95rem; }
+    .teaser-root img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+    .teaser-uc {
+      margin: 0;
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--muted);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+    }
+    .teaser-caption { margin: 0.75rem 0 0; }
     .bib-wrap { position: relative; }
     pre {
       margin: 0;
@@ -147,6 +186,7 @@
     <header>
       <h1>L-SR1: Learned Symmetric-Rank-One Preconditioning</h1>
       <p class="venue">International Conference on Machine Learning (ICML), 2026</p>
+      <p class="status-banner" role="note">This project page is <strong>under construction</strong>. Some links and materials are <abbr title="To be determined">TBD</abbr>.</p>
       <p class="authors">
         <a href="https://github.com/gallif" rel="noopener">Gal Lifshitz</a>,
         Shahar Zuler,
@@ -155,27 +195,29 @@
       </p>
       <div class="btns">
         <a class="btn btn-primary" href="https://github.com/gallif/lsr1" rel="noopener">Code</a>
-        <!-- Replace href with your arXiv, OpenReview, or proceedings URL when public -->
-        <a class="btn btn-secondary" href="#" id="paper-link" rel="noopener">Paper</a>
+        <a class="btn btn-secondary" href="#" id="paper-link" rel="noopener">Paper <span class="muted" style="font-size:0.88em;font-weight:700;">(TBD)</span></a>
       </div>
     </header>
 
     <main>
+      <section aria-labelledby="teaser-heading">
+        <h2 id="teaser-heading">Teaser</h2>
+        <div class="card">
+          <div id="teaser-root" class="teaser-root"></div>
+          <p id="teaser-caption" class="teaser-caption muted">Figure caption — <em>under construction</em> (TBD).</p>
+        </div>
+      </section>
+
       <section aria-labelledby="abstract-heading">
         <h2 id="abstract-heading">Abstract</h2>
         <div class="card">
-          <p class="abstract">
-            This page accompanies our ICML 2026 paper on <strong>learned symmetric rank-one (L-SR1) preconditioning</strong>.
-            We provide official code for training and evaluation; see the repository for setup, data preparation, and pretrained checkpoints when released.
-          </p>
-          <p class="abstract" style="margin-top:1rem;color:var(--muted);font-size:0.95rem;">
-            You can paste the camera-ready abstract here to replace this placeholder.
-          </p>
+          <p class="abstract"><em>Under construction</em> (TBD).</p>
         </div>
       </section>
 
       <section aria-labelledby="cite-heading">
         <h2 id="cite-heading">Citation</h2>
+        <p class="muted" style="margin:0 0 0.75rem;">BibTeX — provisional; volume / pages / DOI <abbr title="To be determined">TBD</abbr>.</p>
         <div class="bib-wrap">
           <div class="copy-row">
             <button type="button" class="copy" id="copy-bib" aria-label="Copy BibTeX">Copy BibTeX</button>
@@ -197,15 +239,38 @@
 
   <script>
     (function () {
+      var TEASER_SRC = 'assets/teaser.png';
+      /* Maintainer: set when public (or leave null to keep Paper TBD behavior) */
+      var PAPER_HREF = null;
+
+      var teaserRoot = document.getElementById('teaser-root');
+      var img = new Image();
+      img.onload = function () {
+        img.alt = 'Teaser figure for L-SR1.';
+        img.loading = 'lazy';
+        teaserRoot.appendChild(img);
+      };
+      img.onerror = function () {
+        var p = document.createElement('p');
+        p.className = 'teaser-uc';
+        p.innerHTML = 'Teaser figure — <em>under construction</em> (<abbr title="To be determined">TBD</abbr>).';
+        teaserRoot.appendChild(p);
+      };
+      img.src = TEASER_SRC;
+
       var paper = document.getElementById('paper-link');
-      // Until you set a URL, clicking Paper scrolls to citation instead of following "#"
-      paper.addEventListener('click', function (e) {
-        if (paper.getAttribute('href') === '#') {
+      if (PAPER_HREF) {
+        paper.setAttribute('href', PAPER_HREF);
+        paper.removeAttribute('aria-disabled');
+        paper.innerHTML = 'Paper';
+        paper.setAttribute('title', '');
+      } else {
+        paper.setAttribute('aria-disabled', 'true');
+        paper.setAttribute('title', 'Paper link — TBD');
+        paper.addEventListener('click', function (e) {
           e.preventDefault();
-          document.getElementById('cite-heading').scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-      paper.setAttribute('title', 'Add your paper URL in docs/index.html (paper-link href)');
+        });
+      }
 
       var btn = document.getElementById('copy-bib');
       var bib = document.getElementById('bibtex');

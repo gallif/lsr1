@@ -4,7 +4,11 @@ Official implementation accompanying the ICML paper **L-SR1: Learned Symmetric-R
 
 **Authors:** Gal Lifshitz, Shahar Zuler, Ori Fouks, Dan Raviv · **Code:** [github.com/gallif/lsr1](https://github.com/gallif/lsr1) · **Project page:** [gallif.github.io/lsr1](https://gallif.github.io/lsr1) · **Contact:** [gallif](https://github.com/gallif)
 
-**Links:** add your **paper** (arXiv / OpenReview / proceedings) in `docs/index.html` and here when public.
+**Paper:** TBD (under construction).
+
+<!--
+  TODO (maintainer — not rendered on GitHub): add paper URL above when public; sync docs/index.html (PAPER_HREF) and teaser at docs/assets/teaser.png; refresh abstract / BibTeX in index.html; README citation block when proceedings are final.
+-->
 
 ## Citation
 
@@ -19,7 +23,7 @@ If you use this code, please cite our paper:
 }
 ```
 
-When the proceedings are out, add `volume`, `pages`, and/or `url` / `doi` to the entry above.
+Full proceedings metadata (`volume`, `pages`, `url` / `doi`) — **TBD**.
 
 ## Requirements
 
