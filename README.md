@@ -1,6 +1,8 @@
 # L-SR1: Learned Symmetric-Rank-One Preconditioning
 
-Official implementation accompanying the ICML paper *L-SR1: Learned Symmetric-Rank-One Preconditioning* (update with exact proceedings title if it differs).
+Official implementation accompanying the ICML paper **L-SR1: Learned Symmetric-Rank-One Preconditioning**.
+
+**Authors:** Gal Lifshitz, Shahar Zuler, Ori Fouks, Dan Raviv
 
 **Links:** add your **paper** (arXiv / OpenReview / proceedings) and optional **project page** (e.g. GitHub Pages) here once they are public.
 
@@ -11,13 +13,13 @@ If you use this code, please cite our paper:
 ```bibtex
 @inproceedings{lsr12026,
   title     = {L-SR1: Learned Symmetric-Rank-One Preconditioning},
-  author    = {TODO},
+  author    = {Lifshitz, Gal and Zuler, Shahar and Fouks, Ori and Raviv, Dan},
   booktitle = {Proceedings of the International Conference on Machine Learning (ICML)},
   year      = {2026},
 }
 ```
 
-Replace `author`, `title` if needed, and use the proceedings volume/pages when published.
+When the proceedings are out, add `volume`, `pages`, and/or `url` / `doi` to the entry above.
 
 ## Requirements
 
@@ -100,5 +102,3 @@ eval.py
 ## License
 
 This project is licensed under the MIT License — see [LICENSE](LICENSE).
-
-Replace the copyright line in `LICENSE` with your names or your institution if required.
