@@ -20,6 +20,12 @@ If you use this code, please cite the paper:
 
 Official ICML proceedings `@inproceedings` citation will be added here when available.
 
+## Overview
+
+**L-SR1** is a learned quasi-Newton optimizer: compact modules build a limited-memory rank-one curvature preconditioner. **PGSM** (Projection-Guided Secant Mechanism) keeps that preconditioner PSD while a secant penalty during meta-training guides it toward quasi-Newton consistency. We evaluate on analytic benchmarks (including performance profiles) and on **monocular human mesh recovery**—AMASS meta-training, 3DPW evaluation without fine-tuning—where L-SR1 improves PA-MPJPE and runtime vs. LGD at matched step budgets.
+
+Motivation, the L-SR1 block diagram, PGSM, analytic results, and HMR curves are on the [**project page**](https://gallif.github.io/lsr1).
+
 ## Requirements
 
 - Linux recommended
