@@ -10,340 +10,340 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
   <style>
+    :root {
+      --text: #222;
+      --muted: #555;
+      --frame: #c8c8c8;
+      --frame-title: #11417a;
+      --prose-w: 42rem;
+      --figure-w: 34rem;
+    }
+
+    html, body {
+      background: #fff;
+    }
+
     body {
       font-family: 'Noto Sans', sans-serif;
+      color: var(--text);
     }
-    .page-container {
-      max-width: min(96vw, 1360px);
-      margin-left: auto;
-      margin-right: auto;
+
+    .site-header,
+    .site-main,
+    .site-footer {
       padding-left: 1.25rem;
       padding-right: 1.25rem;
     }
-    .publication-header-block {
+
+    .site-header {
+      padding-top: 2.25rem;
+      padding-bottom: 1.5rem;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
-    .publication-title {
-      font-family: 'Noto Sans', sans-serif;
-      font-weight: 700;
-      font-size: clamp(1.45rem, 2.85vw, 2.45rem);
-      line-height: 1.12;
-      letter-spacing: -0.025em;
-      color: #111;
-      margin-bottom: 0.75rem !important;
+
+    .site-main {
+      padding-bottom: 3rem;
     }
-    @media (min-width: 1000px) {
-      .publication-title {
-        white-space: nowrap;
-      }
-    }
-    .publication-authors {
-      font-family: 'Noto Sans', sans-serif;
-      font-size: 1.05rem;
-      margin-bottom: 0.5rem !important;
-    }
-    .author-block {
-      display: inline-block;
-      margin-right: 0.15rem;
-    }
-    .publication-affiliation {
-      font-family: 'Noto Sans', sans-serif;
-      font-size: 1rem;
-      color: #555;
-      margin-bottom: 0.65rem !important;
-      line-height: 1.4;
-    }
-    .publication-venue {
-      color: #555;
-      font-weight: 700;
-      font-size: 1.05rem;
-      margin-bottom: 0.75rem;
-    }
-    .teaser .hero-body {
-      padding-top: 0;
-      padding-bottom: 2rem;
-    }
-    .teaser-figure-column {
-      max-width: 920px;
+
+    .prose-column {
+      max-width: var(--prose-w);
       margin-left: auto;
       margin-right: auto;
     }
-    .publication-banner img,
-    .figure-block img {
-      border-radius: 10px;
+
+    .publication-title {
+      font-weight: 700;
+      font-size: clamp(1.35rem, 2.6vw, 2.1rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #111;
+      margin-bottom: 0.75rem;
+    }
+
+    .publication-authors {
+      font-size: 1.02rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .author-block {
+      display: inline-block;
+      margin-right: 0.1rem;
+    }
+
+    .publication-affiliation,
+    .publication-venue {
+      font-size: 0.98rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .publication-venue {
+      font-weight: 600;
+      margin-top: 0.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .link-block {
+      display: inline-block;
+      margin: 0.25rem 0.35rem 0.25rem 0;
+    }
+
+    .teaser-wrap {
+      max-width: var(--figure-w);
+      margin: 0 auto 2rem;
+    }
+
+    .teaser-wrap img {
       width: 100%;
       height: auto;
       display: block;
     }
+
     .teaser-uc {
       margin: 0;
       text-align: center;
-      padding: 2.75rem 1.25rem;
-      color: #666;
-      border: 1px dashed #ccc;
-      border-radius: 10px;
-      background: #fafafa;
+      padding: 2rem 1rem;
+      color: var(--muted);
+      border: 1px dashed var(--frame);
     }
-    .link-block {
-      display: inline-block;
-      margin: 0.35rem 0.35rem 0.35rem 0;
+
+    .content-frame {
+      border: 1px solid var(--frame);
+      padding: 1.15rem 1.25rem 1.25rem;
+      margin-bottom: 2rem;
     }
+
+    .content-frame h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--frame-title);
+      margin: 0 0 0.85rem;
+      letter-spacing: 0.01em;
+    }
+
+    .section-block {
+      margin-bottom: 2.25rem;
+    }
+
+    .section-block h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--frame-title);
+      margin: 0 0 0.85rem;
+    }
+
     .section-copy {
-      font-size: 1.05rem;
-      line-height: 1.65;
-      color: #363636;
+      font-size: 1rem;
+      line-height: 1.62;
+      color: var(--text);
     }
-    .section-copy .content p {
-      margin-bottom: 1em;
+
+    .section-copy p {
+      margin-bottom: 0.85em;
     }
-    .section-copy ul,
-    .section-copy ol {
-      margin-left: 1.25rem;
-      margin-bottom: 1em;
+
+    .section-copy p:last-child {
+      margin-bottom: 0;
     }
-    .figure-block {
-      margin: 1.25rem 0 1.75rem;
+
+    .paper-figure {
+      max-width: var(--figure-w);
+      margin: 1.25rem auto 0;
     }
-    .figure-caption {
-      font-size: 0.95rem;
-      color: #555;
-      margin-top: 0.65rem;
-      line-height: 1.5;
-      text-align: center;
+
+    .paper-figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid #bbb;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     }
-    .figure-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-      margin: 1.25rem 0 1.75rem;
+
+    .paper-figure figcaption {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.45rem;
+      line-height: 1.4;
     }
-    .figure-grid figcaption {
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: 0.5rem;
-      text-align: center;
+
+    .paper-snapshot-row {
+      max-width: var(--figure-w);
+      margin: 1.25rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
     }
-    .callout {
-      background: #eef4fb;
-      border-left: 4px solid #11417a;
-      padding: 0.85rem 1rem;
-      margin: 1rem 0 1.25rem;
-      border-radius: 0 8px 8px 0;
+
+    .paper-snapshot-row img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid #bbb;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     }
-    .results-table {
-      font-size: 0.98rem;
+
+    .paper-table-wrap {
+      max-width: 22rem;
+      margin: 1.25rem auto 0;
+      overflow-x: auto;
     }
-    .results-table th,
-    .results-table td {
-      vertical-align: middle;
+
+    .paper-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      line-height: 1.35;
+      color: var(--text);
     }
+
+    .paper-table thead th {
+      border-top: 1.5px solid #111;
+      border-bottom: 1px solid #111;
+      padding: 0.35rem 0.5rem;
+      font-weight: 700;
+      text-align: left;
+    }
+
+    .paper-table tbody td {
+      border-bottom: 1px solid #111;
+      padding: 0.35rem 0.5rem;
+    }
+
+    .paper-table tbody tr:last-child td {
+      border-bottom: 1.5px solid #111;
+    }
+
     #bibtex {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       line-height: 1.45;
-      border-radius: 8px;
-      background: #f5f5f5;
-      padding: 1rem 1.15rem;
+      border: 1px solid #ddd;
+      padding: 0.85rem 1rem;
+      margin: 0;
+      overflow-x: auto;
+      background: #fff;
     }
-    .copy-bib-btn {
-      margin-bottom: 0.5rem;
+
+    .site-footer {
+      padding-top: 1.5rem;
+      padding-bottom: 2rem;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .btn-unavailable {
+      opacity: 0.55;
+      cursor: not-allowed;
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
-  <section class="hero teaser is-light is-small">
-    <div class="hero-body">
-      <div class="container is-fluid page-container">
-        <div class="publication-header-block">
-          <h1 class="title publication-title">L-SR1: Learned Symmetric-Rank-One Preconditioning</h1>
-          <div class="publication-authors">
-            <span class="author-block">Gal Lifshitz,</span>
-            <span class="author-block">Shahar Zuler,</span>
-            <span class="author-block">Ori Fouks,</span>
-            <span class="author-block">Dan Raviv</span>
-          </div>
-          <div class="publication-affiliation">Tel Aviv University, Tel-Aviv, Israel</div>
-          <div class="publication-venue">International Conference on Machine Learning (ICML), 2026</div>
+  <header class="site-header">
+    <div class="prose-column">
+      <h1 class="publication-title">L-SR1: Learned Symmetric-Rank-One Preconditioning</h1>
+      <div class="publication-authors">
+        <span class="author-block">Gal Lifshitz,</span>
+        <span class="author-block">Shahar Zuler,</span>
+        <span class="author-block">Ori Fouks,</span>
+        <span class="author-block">Dan Raviv</span>
+      </div>
+      <div class="publication-affiliation">Tel Aviv University, Tel-Aviv, Israel</div>
+      <div class="publication-venue">International Conference on Machine Learning (ICML), 2026</div>
 
-          <div class="buttons is-centered is-flex-wrap-wrap" style="justify-content: center;">
-            <span class="link-block">
-              <a href="https://arxiv.org/abs/2508.12270" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark">arXiv</a>
-            </span>
-            <span class="link-block">
-              <a href="https://arxiv.org/pdf/2508.12270.pdf" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-light">PDF</a>
-            </span>
-            <span class="link-block">
-              <a href="https://github.com/gallif/lsr1" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-link">Code</a>
-            </span>
-          </div>
+      <div class="buttons is-centered is-flex-wrap-wrap" style="justify-content: center;">
+        <span class="link-block">
+          <a href="https://arxiv.org/abs/2508.12270" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark">arXiv</a>
+        </span>
+        <span class="link-block">
+          <a href="https://proceedings.mlr.press/" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-light btn-unavailable" title="ICML proceedings link — not yet available">Proceedings</a>
+        </span>
+        <span class="link-block">
+          <a href="https://github.com/gallif/lsr1" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-link">Code</a>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="prose-column">
+      <div class="teaser-wrap">
+        <div id="teaser-root"></div>
+      </div>
+
+      <div class="content-frame">
+        <h2>Abstract</h2>
+        <div class="section-copy">
+          <p>End-to-end deep learning has achieved impressive results but remains limited by its reliance on large labeled datasets, poor generalization to unseen scenarios, and growing computational demands. In contrast, classical optimization methods are data-efficient and lightweight but often suffer from slow convergence. While learned optimizers offer a promising fusion of both worlds, most focus on first-order methods, leaving learned second-order approaches largely unexplored.</p>
+          <p>We propose a novel learned second-order optimizer that introduces a trainable preconditioning unit to enhance the classical Symmetric-Rank-One (SR1) algorithm. This unit generates data-driven vectors used to construct positive semi-definite rank-one matrices, aligned with the secant constraint via a learned projection. Our method is evaluated through analytic experiments and on the real-world task of Monocular Human Mesh Recovery (HMR), where it outperforms existing learned optimization-based approaches. Featuring a lightweight model and requiring no annotated data or fine-tuning, our approach offers strong generalization and is well-suited for integration into broader optimization-based frameworks.</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="hero teaser">
-    <div class="hero-body">
-      <div class="container is-fluid page-container">
-        <div class="teaser-figure-column">
-          <div class="publication-banner">
-            <div id="teaser-root"></div>
-          </div>
+      <div class="content-frame">
+        <h2>Motivation</h2>
+        <div class="section-copy">
+          <p><strong>L-SR1</strong> is a learned quasi-Newton optimizer that uses compact modules to build a rank-one curvature preconditioner from limited memory. SR1-style updates can be indefinite and yield unstable directions; naive PSD constructions via outer products are stable but violate the secant relation.</p>
+          <p><strong>PGSM</strong> (Projection-Guided Secant Mechanism) addresses this by keeping a PSD rank-one preconditioner while guiding it with a secant penalty during meta-training. We ask whether learned optimizers benefit from curvature information—and show improved convergence, stability, and generalization across dimensions and on human mesh recovery.</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="section pt-1 pb-5">
-    <div class="container is-fluid page-container">
-      <h2 class="title is-3">Abstract</h2>
-      <div class="content section-copy">
-        <p>End-to-end deep learning has achieved impressive results but remains limited by its reliance on large labeled datasets, poor generalization to unseen scenarios, and growing computational demands. In contrast, classical optimization methods are data-efficient and lightweight but often suffer from slow convergence. While learned optimizers offer a promising fusion of both worlds, most focus on first-order methods, leaving learned second-order approaches largely unexplored.</p>
-        <p>We propose a novel learned second-order optimizer that introduces a trainable preconditioning unit to enhance the classical Symmetric-Rank-One (SR1) algorithm. This unit generates data-driven vectors used to construct positive semi-definite rank-one matrices, aligned with the secant constraint via a learned projection. Our method is evaluated through analytic experiments and on the real-world task of Monocular Human Mesh Recovery (HMR), where it outperforms existing learned optimization-based approaches. Featuring a lightweight model and requiring no annotated data or fine-tuning, our approach offers strong generalization and is well-suited for integration into broader optimization-based frameworks.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section pt-0 pb-5">
-    <div class="container is-fluid page-container">
-      <h2 class="title is-3">Motivation</h2>
-      <div class="content section-copy">
-        <p><strong>L-SR1</strong> is a learned quasi-Newton optimizer that uses compact, learned modules to build a <strong>rank-one</strong> curvature preconditioner from limited memory.</p>
-        <p><strong>Key challenge.</strong> SR1-style curvature can be <strong>indefinite</strong>, which leads to unstable descent directions.</p>
-        <p><strong>Our fix: PGSM.</strong> <strong>PGSM</strong> (Projection-Guided Secant Mechanism) enforces a <strong>PSD</strong> rank-one preconditioner while <strong>guiding</strong> it with a secant penalty during meta-training.</p>
-        <p><strong>Core question.</strong> Can learned optimizers benefit from curvature information? We show that curvature-aware updates lead to faster convergence, improved stability, and stronger generalization across dimensions and tasks.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section pt-0 pb-5">
-    <div class="container is-fluid page-container">
-      <h2 class="title is-3">Background</h2>
-      <div class="content section-copy">
-        <div class="callout">
-          <p><strong>Learned optimization.</strong> Replace the hand-designed update with a learned map
-            <em>x</em><sub>k+1</sub> = <em>x</em><sub>k</sub> + φ<sub>Θ</sub>(∇<em>f</em>(<em>x</em><sub>k</sub>), <em>x</em><sub>k</sub>, …),
-            where Θ is shared across steps. Meta-training unrolls for <em>K</em> steps and minimizes
-            ℒ<sub>meta</sub> = (1/<em>K</em>) Σ<sub>k</sub> <em>f</em>(<em>x</em><sub>k</sub>).</p>
+      <section class="section-block">
+        <h2>Learned SR1 (L-SR1)</h2>
+        <div class="section-copy">
+          <p>L-SR1 extends limited-memory SR1 with three lightweight, element-wise MLP modules—an input encoder ℰ, a vector generator 𝒫, and a learning-rate generator 𝒢—that read the current optimization state and produce a new rank-one vector for a fixed buffer ℬ<sub>L</sub>. The inverse-Hessian estimate is reconstructed implicitly as a sum of outer products, yielding a PSD preconditioner and a descent direction applied with coordinate-wise step sizes. All components are dimension-invariant, so the same learned optimizer transfers across problem sizes without retraining.</p>
         </div>
-        <div class="callout">
-          <p><strong>SR1 &amp; quasi-Newton methods.</strong> Update with preconditioner <strong>B</strong><sub>k</sub> ≈ inverse Hessian:
-            <em>x</em><sub>k+1</sub> ← <em>x</em><sub>k</sub> − α<sub>k</sub> <strong>B</strong><sub>k</sub> <strong>g</strong><sub>k</sub>.
-            Secant condition (<strong>p</strong><sub>k</sub> = <em>x</em><sub>k</sub> − <em>x</em><sub>k−1</sub>, <strong>q</strong><sub>k</sub> = <strong>g</strong><sub>k</sub> − <strong>g</strong><sub>k−1</sub>):
-            <strong>B</strong><sub>k</sub> <strong>q</strong><sub>k</sub> = <strong>p</strong><sub>k</sub>.
-            SR1: <strong>B</strong><sub>k</sub> ← <strong>B</strong><sub>k−1</sub> + <strong>u</strong><sub>k</sub> <strong>v</strong><sub>k</sub><sup>⊤</sup>.
-            <strong>Catch:</strong> SR1 need not be PSD ⇒ unstable steps; PSD ⇒ descent directions.</p>
+        <figure class="paper-figure">
+          <img src="assets/learned_sr1.png" alt="L-SR1 block diagram (Fig. 2)." loading="lazy" />
+          <figcaption>Fig.&nbsp;2 — L-SR1 iteration: ℰ, 𝒫, 𝒢, and buffer ℬ<sub>L</sub>.</figcaption>
+        </figure>
+      </section>
+
+      <section class="section-block">
+        <h2>PGSM — Projection-Guided Secant Mechanism</h2>
+        <div class="section-copy">
+          <p>We construct preconditioners that remain PSD while approximately satisfying the quasi-Newton secant equation. The structured form B̃<sub>k</sub> = I + Σ<sub>i</sub> v<sub>i</sub>v<sub>i</sub><sup>⊤</sup> uses vectors from 𝒫; during meta-training, a secant penalty ‖p<sub>k</sub> − B̃<sub>k</sub>q<sub>k</sub>‖² is added to the trajectory loss. This encourages curvature-consistent updates without explicit projection at inference time.</p>
         </div>
-      </div>
-    </div>
-  </section>
+        <figure class="paper-figure">
+          <img src="assets/pgsm_geom.png" alt="PGSM geometry figure." loading="lazy" />
+          <figcaption>PGSM geometry — PSD projection with secant guidance.</figcaption>
+        </figure>
+      </section>
 
-  <section class="section pt-0 pb-5">
-    <div class="container is-fluid page-container">
-      <h2 class="title is-3">Learned SR1 (L-SR1)</h2>
-      <div class="content section-copy">
-        <p><strong>State.</strong> Limited-memory buffer ℬ<sub>L</sub> storing rank-one vectors; learned modules: encoder ℰ, vector generator 𝒫, LR generator 𝒢.</p>
-        <p><strong>History.</strong> ℋ<sub>k−1</sub> = (<em>x</em><sub>k−1</sub>, <strong>p</strong><sub>k−1</sub>, <strong>d</strong><sub>k−1</sub>, <strong>g</strong><sub>k−1</sub>, <strong>q</strong><sub>k−1</sub>): previous iterate, step, descent direction, gradient, and gradient difference.</p>
-        <p><strong>One iteration <em>k</em></strong> (given <em>x</em><sub>k−1</sub>, buffer ℬ<sub>L</sub>):</p>
-        <ol>
-          <li>Compute gradient <strong>g</strong><sub>k−1</sub> ← ∇<em>f</em>(<em>x</em><sub>k−1</sub>).</li>
-          <li>Encode features <strong>h</strong><sub>k−1</sub> ← ℰ(ℋ<sub>k−1</sub>).</li>
-          <li>Generate rank-one vector <strong>v</strong><sub>k</sub> ← 𝒫(<strong>h</strong><sub>k−1</sub>); update memory ℬ<sub>L</sub> ← push(ℬ<sub>L</sub>, <strong>v</strong><sub>k</sub>).</li>
-          <li>Form PSD preconditioner <em>B̃</em><sub>k</sub> ← <strong>I</strong> + Σ<sub><strong>v</strong>∈ℬ<sub>L</sub></sub> <strong>v</strong><strong>v</strong><sup>⊤</sup>.</li>
-          <li>Direction <strong>d</strong><sub>k</sub> ← <em>B̃</em><sub>k</sub> <strong>g</strong><sub>k−1</sub>.</li>
-          <li>Step sizes <strong>α</strong><sub>k</sub> ← 𝒢(<strong>h</strong><sub>k−1</sub>).</li>
-          <li>Update <em>x</em><sub>k</sub> ← <em>x</em><sub>k−1</sub> − <strong>α</strong><sub>k</sub> ⊙ <strong>d</strong><sub>k</sub>.</li>
-        </ol>
-      </div>
-      <figure class="figure-block">
-        <img src="assets/learned_sr1.png" alt="L-SR1 block diagram: encoder, vector generator, LR generator, and buffer." loading="lazy" />
-        <figcaption class="figure-caption">L-SR1 iteration block diagram (Fig.&nbsp;2 in the paper): ℰ, 𝒫, 𝒢, and buffer ℬ<sub>L</sub>.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="section pt-0 pb-5">
-    <div class="container is-fluid page-container">
-      <h2 class="title is-3">PGSM: PSD + secant guidance</h2>
-      <div class="content section-copy">
-        <p><strong>PGSM = Projection-Guided Secant Mechanism.</strong></p>
-        <p><strong>Why PGSM?</strong> SR1-style updates can be indefinite ⇒ unstable descent directions. Enforcing PSD via <strong>vv</strong><sup>⊤</sup> is stable but risks violating the secant relation.</p>
-        <p><strong>PSD preconditioner (rank-one sum):</strong></p>
-        <p style="text-align:center;"><em>B̃</em><sub>k</sub> = <strong>I</strong> + Σ<sub>i=1</sub><sup>L</sup> <strong>v</strong><sub>i</sub><strong>v</strong><sub>i</sub><sup>⊤</sup>, with <strong>v</strong><sub>i</sub> from the learned generator.</p>
-        <p><strong>Meta-objective with secant penalty:</strong></p>
-        <p style="text-align:center;">ℒ<sub>meta</sub> = (1/<em>K</em>) Σ<sub>k</sub> ( <em>f</em>(<strong>x</strong><sub>k</sub>) + λ<sub>sec</sub> ‖<strong>p</strong><sub>k</sub> − <em>B̃</em><sub>k</sub><strong>q</strong><sub>k</sub>‖² ).</p>
-        <p>PGSM encourages <em>stable</em> PSD curvature while respecting secant information through the meta-objective—at no extra cost at inference time.</p>
-      </div>
-      <figure class="figure-block">
-        <img src="assets/pgsm_geom.png" alt="PGSM geometry: PSD projection with secant guidance." loading="lazy" />
-        <figcaption class="figure-caption">PGSM geometry: PSD projection with secant guidance.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="section pt-0 pb-5">
-    <div class="container is-fluid page-container">
-      <h2 class="title is-3">Analytic experiments</h2>
-      <div class="content section-copy">
-        <p><strong>Quadratic functions.</strong> Train on random quadratics; test on <strong>higher-dimensional</strong> ones. L-SR1 generalizes <strong>without retraining</strong>. PGSM aligns updates with the Newton direction and outperforms the no-projection variant on unseen dimensions.</p>
-        <p><strong>Performance profiles.</strong> Compared vs. no-PGSM, L-BFGS, Adam, and AdaHessian on a benchmark suite (quadratic, Rosenbrock, and Rastrigin objectives across varying dimension). L-SR1 with PGSM achieves the <strong>best overall performance profile</strong>.</p>
-      </div>
-      <figure class="figure-block">
-        <img src="assets/profiles_notitles.png" alt="Performance profiles on analytic benchmark suite." loading="lazy" />
-        <figcaption class="figure-caption">Performance profiles on quadratic, Rosenbrock, and Rastrigin objectives.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="section pt-0 pb-5">
-    <div class="container is-fluid page-container">
-      <h2 class="title is-3">Human mesh recovery (3DPW)</h2>
-      <div class="content section-copy">
-        <p><strong>Task.</strong> Recover a 3D human mesh from a single RGB image. <strong>Setup.</strong> AMASS-trained; evaluated on 3DPW <strong>without fine-tuning</strong>.</p>
-        <div class="figure-grid">
-          <figure>
-            <img src="assets/hmr_reprojections_no_titles.png" alt="2D reprojection error vs iteration on 3DPW." loading="lazy" />
-            <figcaption>2D reprojection error vs. iteration</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/hmr_curves_no_titles.png" alt="PA-MPJPE vs iteration on 3DPW." loading="lazy" />
-            <figcaption>PA-MPJPE vs. iteration</figcaption>
-          </figure>
+      <section class="section-block">
+        <h2>Human mesh recovery (3DPW)</h2>
+        <div class="section-copy">
+          <p>We integrate L-SR1 into the learned-optimization HMR framework of Song <em>et al.</em>, replacing their gradient-descent update module while keeping the trainable initializer. The model is meta-trained on AMASS with self-supervision and evaluated on 3DPW without fine-tuning. L-SR1 improves PA-MPJPE and runtime relative to LGD at matched inner-step budgets.</p>
         </div>
-        <div class="table-container">
-          <table class="table is-striped is-fullwidth results-table">
+        <div class="paper-snapshot-row">
+          <img src="assets/hmr_reprojections_no_titles.png" alt="2D reprojection error vs. iteration (3DPW)." loading="lazy" />
+          <img src="assets/hmr_curves_no_titles.png" alt="PA-MPJPE vs. iteration (3DPW)." loading="lazy" />
+        </div>
+        <div class="paper-table-wrap">
+          <table class="paper-table">
             <thead>
               <tr>
                 <th>Method</th>
-                <th>PA-MPJPE ↓</th>
+                <th>PA-MPJPE</th>
                 <th>Time (ms)</th>
               </tr>
             </thead>
             <tbody>
               <tr><td>LGD (4 steps)</td><td>55.90</td><td>664</td></tr>
-              <tr><td><strong>L-SR1 (4 steps)</strong></td><td><strong>51.74</strong></td><td><strong>364</strong></td></tr>
+              <tr><td>L-SR1 (4 steps)</td><td>51.74</td><td>364</td></tr>
               <tr><td>L-SR1 w/o secant (4 steps)</td><td>52.80</td><td>364</td></tr>
-              <tr><td><strong>L-SR1 (best horizon)</strong></td><td><strong>51.58</strong></td><td>1183</td></tr>
+              <tr><td>L-SR1 (best horizon)</td><td>51.58</td><td>1183</td></tr>
             </tbody>
           </table>
         </div>
-        <ul>
-          <li><strong>Best 3D accuracy</strong> on 3DPW without fine-tuning vs. optimization-based baselines.</li>
-          <li><strong>Faster convergence</strong>—lower PA-MPJPE in fewer milliseconds than LGD at matched step budgets.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <section class="section pt-0 pb-6">
-    <div class="container is-fluid page-container">
-      <h2 class="title is-3">BibTeX</h2>
-      <p class="is-size-6 has-text-grey mb-3">Official ICML proceedings <code>@inproceedings</code> citation will be added when available.</p>
-      <div class="buttons is-right copy-bib-btn">
-        <button type="button" class="button is-small is-rounded" id="copy-bib">Copy BibTeX</button>
-      </div>
-      <pre id="bibtex" tabindex="0">@misc{lifshitz2025lsr1,
+      <div class="content-frame">
+        <h2>BibTeX</h2>
+        <p class="section-copy" style="font-size: 0.92rem; color: var(--muted); margin-bottom: 0.75rem;">Official ICML proceedings <code>@inproceedings</code> citation will be added when available.</p>
+        <div class="buttons is-right" style="margin-bottom: 0.5rem;">
+          <button type="button" class="button is-small is-rounded" id="copy-bib">Copy BibTeX</button>
+        </div>
+        <pre id="bibtex" tabindex="0">@misc{lifshitz2025lsr1,
   title         = {{L-SR1}: Learned Symmetric-Rank-One Preconditioning},
   author        = {Lifshitz, Gal and Zuler, Shahar and Fouks, Ori and Raviv, Dan},
   year          = {2025},
@@ -352,21 +352,17 @@
   primaryClass  = {cs.LG},
   url           = {https://arxiv.org/abs/2508.12270},
 }</pre>
-    </div>
-  </section>
-
-  <footer class="footer has-background-light">
-    <div class="container is-fluid page-container">
-      <div class="content has-text-centered is-small has-text-grey">
-        <p>© 2026 Gal Lifshitz, Shahar Zuler, Ori Fouks, and Dan Raviv. Code released under the MIT License.</p>
       </div>
     </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Gal Lifshitz, Shahar Zuler, Ori Fouks, and Dan Raviv. Code released under the MIT License.</p>
   </footer>
 
   <script>
     (function () {
       var TEASER_SRC = 'assets/teaser.png';
-
       var teaserRoot = document.getElementById('teaser-root');
       var img = new Image();
       img.onload = function () {
@@ -377,7 +373,7 @@
       img.onerror = function () {
         var p = document.createElement('p');
         p.className = 'teaser-uc';
-        p.innerHTML = 'Teaser figure — <em>under construction</em> (<abbr title="To be determined">TBD</abbr>).';
+        p.innerHTML = 'Teaser figure — <em>under construction</em>.';
         teaserRoot.appendChild(p);
       };
       img.src = TEASER_SRC;
