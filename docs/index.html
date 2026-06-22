@@ -14,8 +14,9 @@
       --text: #222;
       --muted: #555;
       --heading: #11417a;
-      --prose-w: 42rem;
+      --prose-w: min(96vw, 980px);
       --figure-w: min(96vw, 920px);
+      --hmr-block-w: min(96vw, 720px);
     }
 
     html, body {
@@ -98,13 +99,86 @@
     }
 
     .teaser-wrap img,
-    .paper-figure img,
-    .paper-snapshot-row img {
+    .paper-figure img {
       width: 100%;
       height: auto;
       display: block;
       border: 1px solid #bbb;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .hmr-results {
+      max-width: var(--hmr-block-w);
+      margin: 1.25rem auto 0;
+      text-align: center;
+    }
+
+    .hmr-curves-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .hmr-curves-row img {
+      flex: 1 1 0;
+      min-width: 0;
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid #bbb;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .hmr-table-wrap {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .paper-table {
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      line-height: 1.35;
+      color: var(--text);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .paper-table col.col-method {
+      width: 16rem;
+    }
+
+    .paper-table thead th {
+      border-top: 1.5px solid #111;
+      border-bottom: 1px solid #111;
+      padding: 0.35rem 0.65rem;
+      font-weight: 700;
+      text-align: left;
+    }
+
+    .paper-table thead th:first-child,
+    .paper-table tbody td:first-child {
+      min-width: 16rem;
+      white-space: nowrap;
+      padding-right: 1rem;
+    }
+
+    .paper-table tbody td {
+      border-bottom: 1px solid #111;
+      padding: 0.35rem 0.65rem;
+      text-align: left;
+    }
+
+    .paper-table tbody tr:last-child td {
+      border-bottom: 1.5px solid #111;
+    }
+
+    @media (max-width: 640px) {
+      .hmr-curves-row {
+        flex-direction: column;
+      }
     }
 
     .teaser-uc {
@@ -149,44 +223,6 @@
       color: var(--muted);
       margin-top: 0.45rem;
       line-height: 1.4;
-    }
-
-    .paper-snapshot-row {
-      margin-top: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .paper-table-wrap {
-      margin-top: 1.25rem;
-      overflow-x: auto;
-    }
-
-    .paper-table {
-      width: 100%;
-      max-width: 22rem;
-      border-collapse: collapse;
-      font-size: 0.88rem;
-      line-height: 1.35;
-      color: var(--text);
-    }
-
-    .paper-table thead th {
-      border-top: 1.5px solid #111;
-      border-bottom: 1px solid #111;
-      padding: 0.35rem 0.5rem;
-      font-weight: 700;
-      text-align: left;
-    }
-
-    .paper-table tbody td {
-      border-bottom: 1px solid #111;
-      padding: 0.35rem 0.5rem;
-    }
-
-    .paper-table tbody tr:last-child td {
-      border-bottom: 1.5px solid #111;
     }
 
     #bibtex {
@@ -287,26 +323,33 @@
           <p>We integrate L-SR1 into the learned-optimization HMR framework of Song <em>et al.</em>, replacing their gradient-descent update module while keeping the trainable initializer. The model is meta-trained on AMASS with self-supervision and evaluated on 3DPW without fine-tuning. L-SR1 improves PA-MPJPE and runtime relative to LGD at matched inner-step budgets.</p>
         </div>
       </div>
-      <div class="figure-column paper-snapshot-row">
-        <img src="assets/hmr_reprojections_no_titles.png" alt="2D reprojection error vs. iteration (3DPW)." loading="lazy" />
-        <img src="assets/hmr_curves_no_titles.png" alt="PA-MPJPE vs. iteration (3DPW)." loading="lazy" />
-      </div>
-      <div class="figure-column paper-table-wrap">
-        <table class="paper-table">
-          <thead>
-            <tr>
-              <th>Method</th>
-              <th>PA-MPJPE</th>
-              <th>Time (ms)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>LGD (4 steps)</td><td>55.90</td><td>664</td></tr>
-            <tr><td>L-SR1 (4 steps)</td><td>51.74</td><td>364</td></tr>
-            <tr><td>L-SR1 w/o secant (4 steps)</td><td>52.80</td><td>364</td></tr>
-            <tr><td>L-SR1 (best horizon)</td><td>51.58</td><td>1183</td></tr>
-          </tbody>
-        </table>
+      <div class="hmr-results">
+        <div class="hmr-curves-row">
+          <img src="assets/hmr_reprojections_no_titles.png" alt="2D reprojection error vs. iteration (3DPW)." loading="lazy" />
+          <img src="assets/hmr_curves_no_titles.png" alt="PA-MPJPE vs. iteration (3DPW)." loading="lazy" />
+        </div>
+        <div class="hmr-table-wrap">
+          <table class="paper-table">
+            <colgroup>
+              <col class="col-method" />
+              <col />
+              <col />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>PA-MPJPE</th>
+                <th>Time (ms)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>LGD (4 steps)</td><td>55.90</td><td>664</td></tr>
+              <tr><td>L-SR1 (4 steps)</td><td>51.74</td><td>364</td></tr>
+              <tr><td>L-SR1 w/o secant (4 steps)</td><td>52.80</td><td>364</td></tr>
+              <tr><td>L-SR1 (best horizon)</td><td>51.58</td><td>1183</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
